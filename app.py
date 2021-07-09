@@ -42,10 +42,10 @@ def basic_view():
 
 @app.get('/predict', response_class=HTMLResponse)
 def take_inp():
-    return '''<form method="post"> 
+    return '''<center><form method="post"> 
     <input type="text" maxlength="28" name="text" value="Text Emotion to be tested"/>  
     <input type="submit"/> 
-    </form>'''
+    </form></center>'''
 
 
 
@@ -55,7 +55,7 @@ def predict(text:str = Form(...)):
     loaded_model = tf.keras.models.load_model('sentiment.h5')
     predictions = loaded_model.predict(clean_text)
     sentiment = int(np.argmax(predictions))
-    probability = max(predictions.tolist()[0])
+    probability = max(predictions.tolist()[0])*100
     print(sentiment)
     if sentiment==0:
         t_sentiment = 'negative'
@@ -67,5 +67,5 @@ def predict(text:str = Form(...)):
     return {
         "ACTUALL SENTENCE": text,
         "PREDICTED SENTIMENT": t_sentiment,
-        "Probability": probability
+        "Probability Percentage": probability
     }
