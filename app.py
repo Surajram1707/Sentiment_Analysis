@@ -42,10 +42,10 @@ def basic_view():
 
 @app.get('/predict', response_class=HTMLResponse)
 def take_inp():
-    return '''<center><form method="post"> 
-    <input type="text" maxlength="28" name="text" value="Text Emotion to be tested"/>  
-    <input type="submit"/> 
-    </form></center>'''
+    return '''<body style="background-color:pink;"><center><br><br><br><br><br><br><h1>Sentiment - Analysis</h1><br><form method="post"> 
+    <input style="border:2px solid black;border-radius:20px;height:50px; width:400px; text-align:center;outline:none;background-color:lightpink;font-weight:bolder;" type="text" maxlength="28" name="text" placeholder="Text Emotion to be tested"/>  
+    <input style="border:3px solid black;border-radius:20px;height:50px; width:200px; text-align:center; outline:none;background-color:violet;font-weight:bolder;" type="submit"/> 
+    </form></center></body>'''
 
 
 
